@@ -10,4 +10,11 @@
     <string name="hide_password">Hide Password</string>
     <string name="show_password">Show password</string>
     <string name="terms_and_conditions">By continuing you accept our Privacy policy and Term of Use</string>
+    <string name="terms_and_conditions_header">Term of Use</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="or">or</string>
+    <string name="sign_in">Sign In</string>
+    <string name="go_to_login">Already have an account? Login</string>
+    <string name="login">Login</string>
+    <string name="forgot_password">Forgot your password?</string>
 </resources>

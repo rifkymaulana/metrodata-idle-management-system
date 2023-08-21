@@ -16,18 +16,19 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.metrodataidlemanagementsystem.R
 import com.example.metrodataidlemanagementsystem.components.ButtonComponent
-import com.example.metrodataidlemanagementsystem.components.CheckboxComponent
 import com.example.metrodataidlemanagementsystem.components.ClickableLoginTextComponent
 import com.example.metrodataidlemanagementsystem.components.DividerTextComponent
 import com.example.metrodataidlemanagementsystem.components.HeadingTextComponent
 import com.example.metrodataidlemanagementsystem.components.MyTextFieldComponent
 import com.example.metrodataidlemanagementsystem.components.NormalTextComponent
 import com.example.metrodataidlemanagementsystem.components.PasswordTextFieldComponent
+import com.example.metrodataidlemanagementsystem.components.UnderlinedNormalTextComponent
 import com.example.metrodataidlemanagementsystem.navigation.PostOfficeAppRouter
 import com.example.metrodataidlemanagementsystem.navigation.Screen
+import com.example.metrodataidlemanagementsystem.navigation.SystemBackButtonHandler
 
 @Composable
-fun SignUpScreen() {
+fun LoginScreen() {
     Surface(
         color = Color.White,
         modifier = Modifier
@@ -35,23 +36,13 @@ fun SignUpScreen() {
             .background(color = Color.White)
             .padding(28.dp)
     ) {
-        Column(modifier = Modifier.fillMaxSize()) {
-
+        Column(
+            modifier = Modifier.fillMaxSize()
+        ) {
             Spacer(modifier = Modifier.height(120.dp))
-
-            NormalTextComponent(value = stringResource(id = R.string.hello))
-            HeadingTextComponent(value = stringResource(id = R.string.create_account))
-            Spacer(modifier = Modifier.height(20.dp))
-
-            MyTextFieldComponent(
-                labelValue = stringResource(id = R.string.first_name),
-                painterResource = painterResource(id = R.drawable.profile)
-            )
-
-            MyTextFieldComponent(
-                labelValue = stringResource(id = R.string.last_name),
-                painterResource = painterResource(id = R.drawable.profile)
-            )
+            NormalTextComponent(value = stringResource(id = R.string.login))
+            HeadingTextComponent(value = stringResource(id = R.string.welcome))
+            Spacer(modifier = Modifier.height(40.dp))
 
             MyTextFieldComponent(
                 labelValue = stringResource(id = R.string.email),
@@ -59,25 +50,17 @@ fun SignUpScreen() {
             )
 
             PasswordTextFieldComponent(
-                labelValue = stringResource(id = R.string.password),
+                labelValue = stringResource(id = R.string.email),
                 painterResource = painterResource(id = R.drawable.lock)
             )
 
-            CheckboxComponent(
-                value = stringResource(id = R.string.terms_and_conditions),
-                onTextSelected = {
-                    PostOfficeAppRouter.navigateTo(Screen.TermsAndConditionScreen)
-                }
-            )
+            Spacer(modifier = Modifier.height(10.dp))
+            UnderlinedNormalTextComponent(value = stringResource(id = R.string.forgot_password))
 
             Spacer(modifier = Modifier.height(10.dp))
-
-            ButtonComponent(
-                value = stringResource(id = R.string.sign_up),
-                onClick = {
-                    PostOfficeAppRouter.navigateTo(Screen.LoginScreen)
-                }
-            )
+            ButtonComponent(value = stringResource(id = R.string.login), onClick = {
+                PostOfficeAppRouter.navigateTo(Screen.HomeScreen)
+            })
 
             Spacer(modifier = Modifier.height(20.dp))
 
@@ -85,15 +68,21 @@ fun SignUpScreen() {
 
             Spacer(modifier = Modifier.height(20.dp))
 
-            ClickableLoginTextComponent(onTextSelected ={
-                PostOfficeAppRouter.navigateTo(Screen.LoginScreen)
+            ClickableLoginTextComponent(
+                tryingToLogin = false,
+                onTextSelected ={
+                PostOfficeAppRouter.navigateTo(Screen.SignUpScreen)
             })
         }
+    }
+
+    SystemBackButtonHandler {
+        PostOfficeAppRouter.navigateTo(Screen.SignUpScreen)
     }
 }
 
 @Preview
 @Composable
-fun SignUpScreenPreview() {
-    SignUpScreen()
+fun LoginScreenPreview() {
+    LoginScreen()
 }
