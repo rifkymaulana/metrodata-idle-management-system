@@ -22,6 +22,7 @@ import androidx.compose.material3.Divider
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextFieldDefaults
@@ -49,9 +50,11 @@ import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.withStyle
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.metrodataidlemanagementsystem.R
+import com.example.metrodataidlemanagementsystem.navigation.Screen
 import com.example.metrodataidlemanagementsystem.ui.theme.BackgoundColor
 import com.example.metrodataidlemanagementsystem.ui.theme.GrayColor
 import com.example.metrodataidlemanagementsystem.ui.theme.Primary
@@ -347,4 +350,21 @@ fun UnderlinedNormalTextComponent(value: String) {
         textAlign = TextAlign.Center,
         textDecoration = TextDecoration.Underline
     )
+}
+
+@Composable
+fun BottomNavigationBar() {
+    NavigationBar(
+        modifier = Modifier
+            .fillMaxWidth(),
+        containerColor = BackgoundColor,
+    ) {
+        Text(text = "Home")
+    }
+}
+
+@Preview
+@Composable
+fun BottomNavigationBarPreview() {
+    BottomNavigationBar()
 }

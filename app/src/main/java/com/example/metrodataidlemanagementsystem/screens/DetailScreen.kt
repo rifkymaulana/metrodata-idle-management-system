@@ -22,6 +22,9 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.metrodataidlemanagementsystem.navigation.PostOfficeAppRouter
+import com.example.metrodataidlemanagementsystem.navigation.Screen
+import com.example.metrodataidlemanagementsystem.navigation.SystemBackButtonHandler
 
 @Composable
 fun DetailScreen(item: Item) {
@@ -63,6 +66,10 @@ fun DetailScreen(item: Item) {
                 modifier = Modifier.fillMaxWidth()
             )
         }
+    }
+
+    SystemBackButtonHandler {
+        PostOfficeAppRouter.navigateTo(Screen.HomeScreen)
     }
 }
 

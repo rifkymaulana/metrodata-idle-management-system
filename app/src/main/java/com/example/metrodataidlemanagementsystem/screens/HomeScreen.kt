@@ -25,6 +25,7 @@ import androidx.constraintlayout.compose.ConstraintLayout
 import com.example.metrodataidlemanagementsystem.R
 import com.example.metrodataidlemanagementsystem.navigation.PostOfficeAppRouter
 import com.example.metrodataidlemanagementsystem.navigation.Screen
+import com.example.metrodataidlemanagementsystem.navigation.SystemBackButtonHandler
 import com.example.metrodataidlemanagementsystem.ui.theme.Primary
 
 data class Item(val id: Int, val title: String, val imageResId: Int, val description: String)
@@ -78,6 +79,10 @@ fun HomeScreen() {
                 }
             }
         }
+    }
+
+    SystemBackButtonHandler {
+        PostOfficeAppRouter.navigateTo(Screen.LoginScreen)
     }
 }
 
@@ -172,6 +177,31 @@ fun generateSampleData(): List<Item> {
             R.drawable.profile,
             "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised."
         ),
+        Item(
+            7,
+            "Card 7",
+            R.drawable.profile,
+            "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised."
+        ),
+        Item(
+            8,
+            "Card 8",
+            R.drawable.profile,
+            "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised."
+        ),
+        Item(
+            9,
+            "Card 9",
+            R.drawable.profile,
+            "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour."
+        ),
+        Item(
+            10,
+            "Card 10",
+            R.drawable.profile,
+            "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour."
+        ),
+
         // Add more items here...
     )
 }
