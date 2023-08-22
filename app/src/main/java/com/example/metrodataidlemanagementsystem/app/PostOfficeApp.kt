@@ -8,6 +8,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import com.example.metrodataidlemanagementsystem.navigation.PostOfficeAppRouter
 import com.example.metrodataidlemanagementsystem.navigation.Screen
+import com.example.metrodataidlemanagementsystem.screens.DetailScreen
 import com.example.metrodataidlemanagementsystem.screens.HomeScreen
 import com.example.metrodataidlemanagementsystem.screens.LoginScreen
 import com.example.metrodataidlemanagementsystem.screens.SignUpScreen
@@ -24,14 +25,21 @@ fun PostOfficeApp() {
                 is Screen.SignUpScreen -> {
                     SignUpScreen()
                 }
+
                 is Screen.TermsAndConditionScreen -> {
                     TermsAndConditionScreen()
                 }
+
                 is Screen.LoginScreen -> {
                     LoginScreen()
                 }
+
                 is Screen.HomeScreen -> {
                     HomeScreen()
+                }
+
+                is Screen.DetailScreen -> {
+                    DetailScreen(PostOfficeAppRouter.item)
                 }
             }
         }

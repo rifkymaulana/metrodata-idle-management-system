@@ -58,9 +58,12 @@ fun LoginScreen() {
             UnderlinedNormalTextComponent(value = stringResource(id = R.string.forgot_password))
 
             Spacer(modifier = Modifier.height(10.dp))
-            ButtonComponent(value = stringResource(id = R.string.login), onClick = {
-                PostOfficeAppRouter.navigateTo(Screen.HomeScreen)
-            })
+            ButtonComponent(
+                value = stringResource(id = R.string.login),
+                onClick = {
+                    PostOfficeAppRouter.navigateTo(Screen.HomeScreen)
+                }
+            )
 
             Spacer(modifier = Modifier.height(20.dp))
 
@@ -70,9 +73,9 @@ fun LoginScreen() {
 
             ClickableLoginTextComponent(
                 tryingToLogin = false,
-                onTextSelected ={
-                PostOfficeAppRouter.navigateTo(Screen.SignUpScreen)
-            })
+                onTextSelected = {
+                    PostOfficeAppRouter.navigateTo(Screen.SignUpScreen)
+                })
         }
     }
 
